@@ -17,7 +17,7 @@ SocialHub is a simple social network project developed in Java 21. Initially, th
 ## Dependencies
 
 - Java 21
-- Maven or Gradle (choose based on your project setup)
+- Maven 
 
 ## Future Plans
 
