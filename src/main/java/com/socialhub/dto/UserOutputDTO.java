@@ -5,10 +5,8 @@ public class UserOutputDTO {
     private String username;
     private String email;
 
-    // Construtor padrão
     public UserOutputDTO() {}
 
-    // Construtor parametrizado
     public UserOutputDTO(Long id, String username, String email) {
         this.id = id;
         this.username = username;

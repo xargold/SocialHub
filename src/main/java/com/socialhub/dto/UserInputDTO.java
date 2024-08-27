@@ -5,10 +5,8 @@ public class UserInputDTO {
     private String email;
     private String password;
 
-    // Construtor padrão
     public UserInputDTO() {}
 
-    // Construtor parametrizado
     public UserInputDTO(String username, String email, String password) {
         this.username = username;
         this.email = email;

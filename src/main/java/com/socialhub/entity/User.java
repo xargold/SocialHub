@@ -6,10 +6,8 @@ public class User {
     private String email;
     private String password;
 
-    // Construtor padrão
     public User() {}
 
-    // Construtor parametrizado
     public User(Long id, String username, String email, String password) {
         this.id = id;
         this.username = username;
