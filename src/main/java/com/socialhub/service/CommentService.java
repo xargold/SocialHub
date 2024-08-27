@@ -14,7 +14,7 @@ public class CommentService {
     public void createComment(CommentInputDTO commentInputDTO) {
         Comment comment = CommentMapper.toComment(commentInputDTO);
         commentRepository.save(comment);
-        System.out.println("Comment created: " + comment.getContent());
+        System.out.println("Comment created on post " + comment.getPostId() + " by user " + comment.getUserId());
     }
 
     public List<CommentOutputDTO> getAllComments() {

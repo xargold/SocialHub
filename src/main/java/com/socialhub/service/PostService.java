@@ -11,10 +11,10 @@ import java.util.stream.Collectors;
 public class PostService {
     private PostRepository postRepository = new PostRepository();
 
-    public void createPost(PostInputDTO postInputDTO) {
+   public void createPost(PostInputDTO postInputDTO) {
         Post post = PostMapper.toPost(postInputDTO);
         postRepository.save(post);
-        System.out.println("Post created: " + post.getTitle());
+        System.out.println("Post created by user " + post.getUserId());
     }
 
     public List<PostOutputDTO> getAllPosts() {
