@@ -1,17 +1,17 @@
 package com.socialhub.repository;
 
-import com.socialhub.dto.UserDTO;
+import com.socialhub.entity.User;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepository {
-    private List<UserDTO> users = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 
-    public void save(UserDTO userDTO) {
-        users.add(userDTO);
+    public void save(User user) {
+        users.add(user);
     }
 
-    public List<UserDTO> findAll() {
+    public List<User> findAll() {
         return users;
     }
 }
