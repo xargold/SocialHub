@@ -18,6 +18,15 @@ public class UserService {
         System.out.println("User created: " + user.getUsername());
     }
 
+    public UserOutputDTO login(String email, String password) {
+        User user = userRepository.findByEmailAndPassword(email, password);
+        if (user != null) {
+            return UserMapper.toUserOutputDTO(user);
+        } else {
+            return null;
+        }
+    }
+
     public List<UserOutputDTO> getAllUsers() {
         List<User> users = userRepository.findAll();
         return users.stream()

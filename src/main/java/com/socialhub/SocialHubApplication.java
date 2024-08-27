@@ -12,40 +12,54 @@ public class SocialHubApplication {
         PostController postController = new PostController();
         CommentController commentController = new CommentController();
 
+        System.out.println("Welcome to SocialHub!");
+        System.out.println("1. Create User");
+        System.out.println("2. Login");
+        System.out.print("Choose an option: ");
+
+        int choice = scanner.nextInt();
+        scanner.nextLine();  // Clear buffer
+
+        if (choice == 1) {
+            userController.createUser(scanner);
+        }
+
+        boolean loggedIn = false;
+        while (!loggedIn) {
+            System.out.println("Please login to continue:");
+            loggedIn = userController.login(scanner);
+        }
+
         while (true) {
-            System.out.println("Welcome to SocialHub!");
-            System.out.println("1. Create User");
-            System.out.println("2. View All Users");
-            System.out.println("3. Create Post");
-            System.out.println("4. View All Posts");
-            System.out.println("5. Create Comment");
-            System.out.println("6. View All Comments");
-            System.out.println("7. Exit");
+            System.out.println("Menu:");
+            System.out.println("1. Create Post");
+            System.out.println("2. View All Posts");
+            System.out.println("3. Create Comment");
+            System.out.println("4. View All Comments");
+            System.out.println("5. Logout");
+            System.out.println("6. Exit");
             System.out.print("Choose an option: ");
 
-            int choice = scanner.nextInt();
-            scanner.nextLine();  // Limpar buffer
+            choice = scanner.nextInt();
+            scanner.nextLine();  // Clear buffer
 
             switch (choice) {
                 case 1:
-                    userController.createUser(scanner);
+                    postController.createPost(scanner, userController.getLoggedInUser());
                     break;
                 case 2:
-                    userController.viewAllUsers();
-                    break;
-                case 3:
-                    postController.createPost(scanner);
-                    break;
-                case 4:
                     postController.viewAllPosts();
                     break;
-                case 5:
-                    commentController.createComment(scanner);
+                case 3:
+                    commentController.createComment(scanner, userController.getLoggedInUser());
                     break;
-                case 6:
+                case 4:
                     commentController.viewAllComments();
                     break;
-                case 7:
+                case 5:
+                    loggedIn = false;
+                    break;
+                case 6:
                     System.out.println("Exiting...");
                     scanner.close();
                     return;
