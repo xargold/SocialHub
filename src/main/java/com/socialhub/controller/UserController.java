@@ -1,7 +1,9 @@
 package com.socialhub.controller;
 
-import com.socialhub.dto.UserDTO;
+import com.socialhub.dto.UserInputDTO;
+import com.socialhub.dto.UserOutputDTO;
 import com.socialhub.service.UserService;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserController {
@@ -15,14 +17,15 @@ public class UserController {
         System.out.print("Enter password: ");
         String password = scanner.nextLine();
 
-        UserDTO userDTO = new UserDTO(username, email, password);
-        userService.createUser(userDTO);
+        UserInputDTO userInputDTO = new UserInputDTO(username, email, password);
+        userService.createUser(userInputDTO);
     }
 
     public void viewAllUsers() {
+        List<UserOutputDTO> users = userService.getAllUsers();
         System.out.println("All users:");
-        for (UserDTO userDTO : userService.getAllUsers()) {
-            System.out.println("Username: " + userDTO.getUsername() + ", Email: " + userDTO.getEmail());
+        for (UserOutputDTO userOutputDTO : users) {
+            System.out.println("ID: " + userOutputDTO.getId() + ", Username: " + userOutputDTO.getUsername() + ", Email: " + userOutputDTO.getEmail());
         }
     }
 }

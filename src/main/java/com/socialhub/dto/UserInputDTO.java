@@ -1,11 +1,15 @@
 package com.socialhub.dto;
 
-public class UserDTO {
+public class UserInputDTO {
     private String username;
     private String email;
     private String password;
 
-    public UserDTO(String username, String email, String password) {
+    // Construtor padrão
+    public UserInputDTO() {}
+
+    // Construtor parametrizado
+    public UserInputDTO(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
